@@ -1,0 +1,39 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Charts {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+         <div class="container-fluid">
+            <h1 class="mt-4">DB Users</h1>
+        <nav aria-label="breadcrumb mb-4">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('home_blueprint.index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ request.url }}">Collections</a></li>
+          </ol>
+        </nav>
+         </div>
+        <div class="row">
+            <div class="container">
+                     <ul class="list-group">
+                        {% for item in db %}
+                      <li id="{{item.name}}"  onclick="location.href='{{ request.url }}/{{ item.name }}'" class="list-group-item">{{ item.name }}</li>
+                        {% endfor %}
+                        </ul>
+            </div>
+
+        </div>
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+
+
+{% endblock javascripts %}
